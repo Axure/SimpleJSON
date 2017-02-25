@@ -1,6 +1,7 @@
 #include "jparser.h"
 #include <cerrno>
 #include <cctype>
+#include <cstring>
 #include <cassert>
 #include <cstdlib>
 #include <clocale>
