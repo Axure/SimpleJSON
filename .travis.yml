@@ -43,9 +43,10 @@ matrix:
       env:
         - CC=clang-3.7
         - CXX=clang++-3.7
-script:
+      script:
+        - cmake -DCMAKE_C_COMPILER=clang-3.7 -DCMAKE_CXX_COMPILER=clang++-3.7 ..
+        - make
+        - ./Test
+before_script:
   - mkdir build
   - cd build
-  - cmake ..
-  - make
-  - ./Test
