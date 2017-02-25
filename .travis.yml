@@ -1,3 +1,4 @@
+language: cpp
 sudo: required
 matrix:
   include:
@@ -11,6 +12,10 @@ matrix:
       env:
         - CC=gcc-4.9
         - CXX=g++-4.9
+      script:
+        - cmake -DCMAKE_C_COMPILER=gcc-4.9 -DCMAKE_CXX_COMPILER=g++-4.9 ..
+        - make
+        - ./Test
     - compiler: gcc
       addons:
         apt:
@@ -21,6 +26,10 @@ matrix:
       env:
         - CC=gcc-5
         - CXX=g++-5
+      script:
+        - cmake -DCMAKE_C_COMPILER=gcc-5 -DCMAKE_CXX_COMPILER=g++-5 ..
+        - make
+        - ./Test
     - compiler: clang
       addons:
         apt:
@@ -32,6 +41,10 @@ matrix:
       env:
         - CC=clang-3.6
         - CXX=clang++-3.6
+      script:
+        - cmake -DCMAKE_C_COMPILER=clang-3.6 -DCMAKE_CXX_COMPILER=clang++-3.6 ..
+        - make
+        - ./Test
     - compiler: clang
       addons:
         apt:
@@ -43,9 +56,10 @@ matrix:
       env:
         - CC=clang-3.7
         - CXX=clang++-3.7
-script:
+      script:
+        - cmake -DCMAKE_C_COMPILER=clang-3.7 -DCMAKE_CXX_COMPILER=clang++-3.7 ..
+        - make
+        - ./Test
+before_script:
   - mkdir build
   - cd build
-  - cmake ..
-  - make
-  - ./Test
