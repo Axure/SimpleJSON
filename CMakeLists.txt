@@ -5,6 +5,9 @@ project(SimpleJSON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+#set (CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -std=c11")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
 add_library(SimpleJSON SimpleJSON/json.h SimpleJSON/json.cpp SimpleJSON/jparser.h SimpleJSON/jparser.cpp)
 set_property(TARGET SimpleJSON PROPERTY CXX_STANDARD 14)
 
